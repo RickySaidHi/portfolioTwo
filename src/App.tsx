@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <section id="center">
-        <p>Welcome to the portfolio</p>
+        <p className="text-6xl text-red-300">Welcome to the portfolio</p>
       </section>
 
       <div className="ticks"></div>
