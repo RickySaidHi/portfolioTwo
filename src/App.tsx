@@ -1,14 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+import { useState, useEffect } from 'react'
+import LoadingScreen from './components/LoadingScreen'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isLoading, setIsLoading] = useState(true);
+  const [isFading, setIsFading] = useState(false);
+
+
+  useEffect(() => {
+    const fadeTimer = setTimeout(() => {
+      setIsFading(true)
+    }, 2500)
+
+    const removeTimer = setTimeout(() => {
+      setIsLoading(false)
+    }, 3000)
+
+    return () => {
+      clearTimeout(fadeTimer)
+      clearTimeout(removeTimer)
+    }
+  }, [])
 
   return (
     <>
+     {isLoading && (
+        <LoadingScreen fading={isFading} />
+      )}
       <section id="center">
         <p className="text-6xl text-red-300">Welcome to the portfolio</p>
       </section>
