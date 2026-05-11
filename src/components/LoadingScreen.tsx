@@ -13,7 +13,7 @@ const LoadingScreen = ({ fading }: Props) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: '#fff',
+        background: '#000000',
         zIndex: 9999,
         opacity: fading ? 0 : 1,
         transition: 'opacity 0.5s ease',
